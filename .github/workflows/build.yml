@@ -22,6 +22,9 @@ jobs:
 
     - name: Build artifact and site
       run: |
+        export DISPLAY=:99.0
+        sh -e /etc/init.d/xvfb start
+        
         if [ -e "bee" ]; then
           source bee install doc:site
         else
